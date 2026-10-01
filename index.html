@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Los Meta tags de abajo le dicen al navegador del celular de tu novia que NUNCA guarde caché de esta página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     
     <title>Para Ti</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; }
@@ -22,22 +20,28 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            /* NUEVO FONDO INICIAL: Un fondo oscuro misterioso que contrasta con el desamor inicial */
-            background: linear-gradient(135deg, #1f2937, #111827);
+            background: linear-gradient(135deg, #111827, #1f2937, #374151);
+            background-size: 300% 300%;
+            animation: fondoGrisMover 8s ease infinite;
             font-family: 'Quicksand', sans-serif;
             color: #ffffff;
             text-align: center;
             overflow: hidden;
             position: relative;
             padding: 20px;
-            transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: background 0.8s ease;
+        }
+
+        @keyframes fondoGrisMover {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        /* NUEVO FONDO INTERACTIVO: Al dar click cambia a un rojo pasional con destellos */
         body.amor-activo {
-            background: linear-gradient(-45deg, #ff0f43, #ff527b, #ff758f, #ff1744);
+            background: linear-gradient(-45deg, #ff0f43, #ff527b, #ff758f, #ff1744, #ff85a2);
             background-size: 400% 400%;
-            animation: gradientBG 8s ease infinite;
+            animation: gradientBG 4s linear infinite; /* Animación mucho más rápida y enérgica */
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -46,24 +50,23 @@
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
-            padding: 40px 30px;
+            padding: 45px 30px;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            max-width: 420px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            max-width: 400px;
             width: 100%;
             z-index: 10;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
-        /* Cuando se activa el amor, la tarjeta se vuelve blanca limpia brillante */
         .container.blanco-amor {
-            background-color: rgba(255, 255, 255, 0.92);
+            background-color: rgba(255, 255, 255, 0.95);
             color: #333333;
-            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 50px rgba(255, 15, 67, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
         .container.shaking {
@@ -71,78 +74,75 @@
         }
         @keyframes tremor {
             0% { transform: translateX(0); }
-            20% { transform: translateX(-10px); }
-            40% { transform: translateX(10px); }
-            60% { transform: translateX(-10px); }
-            80% { transform: translateX(10px); }
+            20% { transform: translateX(-12px); }
+            40% { transform: translateX(12px); }
+            60% { transform: translateX(-12px); }
+            80% { transform: translateX(12px); }
             100% { transform: translateX(0); }
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             margin: 0 0 20px 0;
             font-weight: 600;
-            letter-spacing: -0.5px;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
         }
         
         h1.cambio-texto {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.8rem;
-            color: #d63384;
+            font-size: 3.5rem;
+            color: #ff0f43;
+            line-height: 1.2;
         }
 
-        /* Contenedor del botón y la flecha indicador */
         .interaccion-box {
             position: relative;
             display: inline-block;
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         .btn-corazon {
             background: none;
             border: none;
-            font-size: 5rem;
+            font-size: 5.5rem;
             cursor: pointer;
             outline: none;
             display: inline-block;
-            animation: latidoSuave 2s infinite;
+            animation: latidoSuave 1.5s infinite;
             transition: transform 0.2s;
             z-index: 5;
             position: relative;
         }
         @keyframes latidoSuave {
             0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
 
-        /* NUEVA FLECHA INDICADORA: Apunta dinámicamente al corazón y se mueve para llamar la atención */
         .flecha-guia {
             position: absolute;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #ff527b;
-            top: -35px;
+            top: -45px;
             left: 50%;
             transform: translateX(-50%);
-            animation: brincarFlecha 1s infinite alternate;
+            animation: brincarFlecha 0.6s infinite alternate;
             pointer-events: none;
         }
         @keyframes brincarFlecha {
             0% { transform: translateX(-50%) translateY(0); }
-            100% { transform: translateX(-50%) translateY(-12px); }
+            100% { transform: translateX(-50%) translateY(-15px); }
         }
 
         .mensaje-oculto {
             display: none;
-            font-size: 1.15rem;
-            color: #4a4a4a;
-            line-height: 1.6;
-            border-top: 1px dashed #ffb3c6;
-            text-align: left;
+            font-size: 1.5rem;
+            color: #ff4d6d;
+            font-weight: 600;
+            border-top: 2px dashed #ffb3c6;
             margin-top: 25px;
             padding-top: 20px;
-            animation: fadeIn 0.8s ease forwards;
+            animation: fadeIn 0.6s ease forwards;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -153,7 +153,7 @@
             position: absolute;
             bottom: -50px;
             pointer-events: none;
-            animation: flotar 4s linear forwards;
+            animation: flotar 3.5s linear forwards;
             z-index: 1;
         }
         @keyframes flotar {
@@ -168,21 +168,18 @@
         <h1 id="tituloPrincipal">Ya no te quiero...</h1>
         
         <div class="interaccion-box">
-            <!-- La flecha que desaparece al dar click -->
             <div class="flecha-guia" id="flecha">👇</div>
             <button class="btn-corazon" id="btnCorazon" onclick="revelarVerdad()">💔</button>
         </div>
         
         <div id="carta" class="mensaje-oculto">
-            ...porque ahora te amo muchísimo más que antes. No te asustes por el mensaje del inicio, solo quería llamar tu atención de una manera diferente. Eres la persona más importante en mi vida y quería que empezaras tu mañana sabiendo que te amo con todo mi corazón. ¡Que tengas un día increíble!
+            ahora si es con mas cariño ❤️
         </div>
     </div>
 
-    <!-- Forzado de anti-caché musical mediante variable temporal única -->
     <audio id="musicaFondo" loop preload="auto"></audio>
 
     <script>
-        // Inyección dinámica de la música con código único anti-caché basado en la hora exacta
         document.getElementById('musicaFondo').innerHTML = `<source src="https://soundhelix.com{new Date().getTime()}" type="audio/mpeg">`;
 
         function revelarVerdad() {
@@ -194,42 +191,44 @@
             const musica = document.getElementById('musicaFondo');
 
             container.classList.add('shaking');
-            if(flecha) flecha.style.display = 'none'; // Quita la flecha de inmediato
+            if(flecha) flecha.style.display = 'none';
 
             setTimeout(() => {
                 document.body.classList.add('amor-activo');
                 container.classList.add('blanco-amor');
                 
-                titulo.innerText = "¡Buenos días!";
+                // Cambia DIRECTO al texto que pediste, sin pasar por el "Buenos días"
+                titulo.innerText = "¡PORQUE AHORA TE AMO!";
                 titulo.classList.add('cambio-texto');
                 
                 btn.innerText = "💖";
-                btn.style.animation = "latidoRapido 0.5s infinite";
+                btn.style.animation = "latidoRapido 0.4s infinite";
                 
+                // Muestra la frase corta pedida
                 carta.style.display = 'block';
 
                 musica.play().catch(error => console.log("Audio desbloqueado"));
-                setInterval(crearCorazon, 220);
+                setInterval(crearCorazon, 180); // Lluvia de corazones más rápida e intensa
             }, 400);
         }
 
         function crearCorazon() {
             const corazon = document.createElement('div');
             corazon.classList.add('corazon-flotante');
-            const tipos = ['❤️', '💖', '💝', '💕', '🌸', '✨', '🌹'];
+            const tipos = ['❤️', '💖', '💝', '💕', '🌹', '✨'];
             corazon.innerText = tipos[Math.floor(Math.random() * tipos.length)];
             corazon.style.left = Math.random() * 100 + 'vw';
             corazon.style.fontSize = Math.random() * 25 + 15 + 'px';
-            corazon.style.animationDuration = Math.random() * 2 + 2.5 + 's';
+            corazon.style.animationDuration = Math.random() * 1.5 + 2 + 's';
             document.body.appendChild(corazon);
-            setTimeout(() => { corazon.remove(); }, 4500);
+            setTimeout(() => { corazon.remove(); }, 4000);
         }
     </script>
 
     <style>
         @keyframes latidoRapido {
             0% { transform: scale(1); }
-            50% { transform: scale(1.25); }
+            50% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
     </style>
