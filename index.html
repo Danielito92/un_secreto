@@ -10,7 +10,7 @@
     <title>Para Ti</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght=600&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; }
@@ -41,7 +41,7 @@
         body.amor-activo {
             background: linear-gradient(-45deg, #ff0f43, #ff527b, #ff758f, #ff1744, #ff85a2);
             background-size: 400% 400%;
-            animation: gradientBG 4s linear infinite; /* Animación mucho más rápida y enérgica */
+            animation: gradientBG 4s linear infinite;
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -136,8 +136,8 @@
 
         .mensaje-oculto {
             display: none;
-            font-size: 1.5rem;
-            color: #ff4d6d;
+            font-size: 1.35rem;
+            color: #4a4a4a;
             font-weight: 600;
             border-top: 2px dashed #ffb3c6;
             margin-top: 25px;
@@ -172,8 +172,9 @@
             <button class="btn-corazon" id="btnCorazon" onclick="revelarVerdad()">💔</button>
         </div>
         
+        <!-- FRASE RESPUESTA: Responde con ingenio y dulzura al reclamo de la mañana -->
         <div id="carta" class="mensaje-oculto">
-            ahora si es con mas cariño ❤️
+            Ves que sí te lo digo con muchísimo cariño, mi amor 💕
         </div>
     </div>
 
@@ -197,18 +198,16 @@
                 document.body.classList.add('amor-activo');
                 container.classList.add('blanco-amor');
                 
-                // Cambia DIRECTO al texto que pediste, sin pasar por el "Buenos días"
                 titulo.innerText = "¡PORQUE AHORA TE AMO!";
                 titulo.classList.add('cambio-texto');
                 
                 btn.innerText = "💖";
                 btn.style.animation = "latidoRapido 0.4s infinite";
                 
-                // Muestra la frase corta pedida
                 carta.style.display = 'block';
 
                 musica.play().catch(error => console.log("Audio desbloqueado"));
-                setInterval(crearCorazon, 180); // Lluvia de corazones más rápida e intensa
+                setInterval(crearCorazon, 180);
             }, 400);
         }
 
